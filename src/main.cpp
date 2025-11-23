@@ -1,7 +1,11 @@
 #include <iostream>
 
-int main() {
-    std::cout << "hi\n";
+#include "node/node.hpp"
 
-    return 1;
+int main() {
+    auto node = std::make_unique<Node>(42);
+    std::cout << "left: " << node->left << "\n";
+    std::cout << "right: " << node->right << "\n";
+
+    return 0;
 }
