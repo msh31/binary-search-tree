@@ -1,7 +1,5 @@
-#include <iostream>
 #include <vector>
 
-#include "node.hpp"
 #include "tree.hpp"
 
 int main() {
@@ -13,12 +11,8 @@ int main() {
 
     for (auto number : cool_numbers) {
         tree.insert(number);
-        std::cout << "succc\n";
     }
 
-    // std::cout << "left: " << node->left << "\n";
-    // std::cout << "right: " << node->right << "\n";
-
-
+    tree.print();
     return 0;
 }

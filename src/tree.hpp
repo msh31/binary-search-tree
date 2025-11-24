@@ -7,4 +7,9 @@ class Tree {
 
         void insert(int value);
         void search_for(int value);
+
+        void print();
+
+    private:
+        void printNode(Node* node);
 };

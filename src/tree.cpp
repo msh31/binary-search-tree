@@ -1,3 +1,4 @@
+#include <iostream>
 #include "tree.hpp"
 
 void Tree::insert(int value) {
@@ -24,4 +25,19 @@ void Tree::insert(int value) {
             }
         }
     }
+}
+
+void Tree::print() {
+    printNode(root.get());
+    std::cout << "\n";
+}
+
+void Tree::printNode(Node* node) {
+    if (node == nullptr) {
+        return;
+    }
+
+    printNode(node->left.get());
+    std::cout << node->value << " ";
+    printNode(node->right.get());
 }
