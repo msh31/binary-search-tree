@@ -8,5 +8,5 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_executable(memory-region-tree
     src/main.cpp
-    src/node/node.cpp
+    src/tree.cpp
 )
