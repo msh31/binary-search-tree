@@ -28,16 +28,25 @@ void Tree::insert(int value) {
 }
 
 void Tree::print() {
-    printNode(root.get());
+    printNode(root.get(), "", false);
     std::cout << "\n";
 }
 
-void Tree::printNode(Node* node) {
+void Tree::printNode(Node* node, const std::string& prefix, bool isLeft) {
     if (node == nullptr) {
         return;
     }
 
-    printNode(node->left.get());
-    std::cout << node->value << " ";
-    printNode(node->right.get());
+    //thx stackoverflow user Adrian Schneider
+    std::cout << prefix;
+    std::cout << (isLeft ? "├──" : "└──" );
+
+    std::cout << node->value << std::endl;
+
+    printNode(node->left.get(), prefix + (isLeft ? "│   " : "    "), true);
+    printNode(node->right.get(), prefix + (isLeft ? "│   " : "    "), false);
+
+    // printNode(node->left.get());
+    // std::cout << node->value << " ";
+    // printNode(node->right.get());
 }

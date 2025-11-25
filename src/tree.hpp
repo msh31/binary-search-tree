@@ -1,5 +1,6 @@
 #pragma once
 #include "node.hpp"
+#include <string>
 
 class Tree {
     public:
@@ -11,5 +12,5 @@ class Tree {
         void print();
 
     private:
-        void printNode(Node* node);
+        void printNode(Node* node, const std::string& prefix, bool isLeft);
 };
