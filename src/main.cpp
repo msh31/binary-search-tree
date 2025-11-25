@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 
 #include "tree.hpp"
@@ -22,5 +23,14 @@ int main() {
     }
 
     tree.print();
+
+    if(tree.search_for(999)) {
+        std::cout << "found non existent number in ze tree\n";
+    } else { std::cout << "999 was not found!\n"; }
+
+    if(tree.search_for(69)) {
+        std::cout << "found 69!\n";
+    } else { std::cout << "69 was not found!\n"; }
+
     return 0;
 }

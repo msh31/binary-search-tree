@@ -7,6 +7,7 @@ void Tree::insert(int value) {
     } else {
         auto raw_ptr = root.get();
 
+        //TODO: account for higher than root
         while(true) {
             if(value < raw_ptr->value) {
                 if(raw_ptr->left == nullptr) {
@@ -45,8 +46,32 @@ void Tree::printNode(Node* node, const std::string& prefix, bool isLeft) {
 
     printNode(node->left.get(), prefix + (isLeft ? "│   " : "    "), true);
     printNode(node->right.get(), prefix + (isLeft ? "│   " : "    "), false);
+}
 
-    // printNode(node->left.get());
-    // std::cout << node->value << " ";
-    // printNode(node->right.get());
+bool Tree::search_for(int value) {
+    if(root == nullptr) {
+        return false;
+    } else {
+        auto raw_ptr = root.get();
+
+        while(true) {
+            if(raw_ptr->value == value) {
+                return true;
+            } else {
+                if(value < raw_ptr->value) {
+                    if(raw_ptr->left == nullptr) {
+                        return false;
+                    } else {
+                        raw_ptr = raw_ptr->left.get();
+                    }
+                } else {
+                    if(raw_ptr->right == nullptr) {
+                        return false;
+                    } else {
+                        raw_ptr = raw_ptr->right.get();
+                    }
+                }
+            }
+        }
+    }
 }
