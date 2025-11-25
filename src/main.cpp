@@ -14,7 +14,7 @@ int main() {
     Tree tree;
 
     std::vector<int> cool_numbers {
-      10, 20, 5, 30, 40, 50, 69, 420
+      5, 2, 3, 1, 4, 10, 20, 30, 40, 50, 69, 420
     };
 
     for (auto number : cool_numbers) {
