@@ -68,20 +68,17 @@ bool Tree::search_for(int value) {
     return false;
 }
 
-Node* Tree::delete_value(Node* root, int value) {
-    if(root == nullptr) {
-        return nullptr;
+void Tree::delete_value(std::unique_ptr<Node>& node, int value) {
+    if(node == nullptr) {
+        return;
     }
 
-    if(value < root->value) {
-        root->left = std::unique_ptr<Node>(delete_value(root->left.get(), value));
-    } else if(value > root->value) {
-        root->right = std::unique_ptr<Node>(delete_value(root->right.get(), value));
+    if(value < node->value) {
+        delete_value(node->left, value);
+    } else if(value > node->value) {
+        delete_value(node->right, value);
     } else {
         // TODO: handle three deletion cases here
         
-        return std::move(root);
     }
-
-    return std::move(root);
 }
