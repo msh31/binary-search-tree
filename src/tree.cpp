@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 #include "tree.hpp"
 
 void Tree::insert(int value) {
@@ -65,4 +66,22 @@ bool Tree::search_for(int value) {
     }
 
     return false;
+}
+
+Node* Tree::delete_value(Node* root, int value) {
+    if(root == nullptr) {
+        return nullptr;
+    }
+
+    if(value < root->value) {
+        root->left = std::unique_ptr<Node>(delete_value(root->left.get(), value));
+    } else if(value > root->value) {
+        root->right = std::unique_ptr<Node>(delete_value(root->right.get(), value));
+    } else {
+        // TODO: handle three deletion cases here
+        
+        return std::move(root);
+    }
+
+    return std::move(root);
 }

@@ -10,6 +10,7 @@ class Tree {
         bool search_for(int value);
 
         void print();
+        Node* delete_value(Node* root, int value);
 
     private:
         void printNode(Node* node, const std::string& prefix, bool isLeft);
