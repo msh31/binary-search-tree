@@ -78,7 +78,16 @@ void Tree::delete_value(std::unique_ptr<Node>& node, int value) {
     } else if(value > node->value) {
         delete_value(node->right, value);
     } else {
-        // TODO: handle three deletion cases here
-        
+        if(node->left == nullptr && node->right == nullptr) {
+            node.reset();
+        } else if(node->left == nullptr || node->right == nullptr) {
+            if(node->left == nullptr) {
+                node = std::move(node->right);
+            } else {
+                node = std::move(node->left);
+            }
+        } else {
+            //TODO
+        }
     }
 }

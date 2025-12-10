@@ -1,3 +1,4 @@
+#include <exception>
 #include <iostream>
 #include <vector>
 
@@ -32,7 +33,13 @@ int main() {
         std::cout << "found 69!\n";
     } else { std::cout << "69 was not found!\n"; }
 
-    // tree.
+    try {
+        tree.delete_value(tree.root, 5);
+        std::cout << "deleted 5!\n";
+        tree.print();
+    } catch(std::exception err) {
+        std::cout << err.what() << "\n";
+    }
 
     return 0;
 }
