@@ -41,5 +41,13 @@ int main() {
         std::cout << err.what() << "\n";
     }
 
+    try {
+        tree.delete_value(tree.root, 40);
+        std::cout << "deleted 40!\n";
+        tree.print();
+    } catch(std::exception err) {
+        std::cout << err.what() << "\n";
+    }
+
     return 0;
 }

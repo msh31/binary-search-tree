@@ -87,7 +87,13 @@ void Tree::delete_value(std::unique_ptr<Node>& node, int value) {
                 node = std::move(node->left);
             }
         } else {
-            //TODO
+            Node* temp = node->right.get();
+            while (temp->left != nullptr) {
+                temp = temp->left.get();
+            }
+
+            node->value = temp->value;
+            delete_value(node->right, temp->value);
         }
     }
 }
